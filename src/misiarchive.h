@@ -24,11 +24,22 @@
 
 #pragma once
 
+#include <boost/cstdint.hpp>
 #include <iostream>
+
+typedef boost::int16_t int16;
+typedef boost::int32_t int32; 
+typedef boost::int64_t int64;
 
 class MisiArchive
 {
 public:
     MisiArchive();
     MisiArchive(const std::istream&);
+
+private:
+    const int16 version;
+    const int reserved_bytes;
+    const int64 checksum_offset;
+
 };
