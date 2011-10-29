@@ -25,6 +25,8 @@
 #pragma once
 
 #include <boost/cstdint.hpp>
+#include <boost/unordered_map>
+
 #include <iostream>
 
 typedef boost::int16_t int16;
@@ -39,7 +41,5 @@ public:
 
 private:
     const int16 version;
-    const int reserved_bytes;
-    const int64 checksum_offset;
-
+    const int64 reserved_bytes;
 };

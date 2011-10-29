@@ -38,3 +38,9 @@ TEST(BasicInterface, Instantiation2)
     std::ifstream ifs;
     MisiArchive archive2(ifs);
 }
+
+TEST(CowVector, IsVector)
+{
+    std::vector<int>* vec = new CowVector<int>();
+    delete vec;
+}
