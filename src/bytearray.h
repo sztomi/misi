@@ -21,5 +21,25 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 */
+
 #pragma once
 
+#include <vector>
+
+namespace misi
+{
+
+// This class is needed to be C++03-compatible
+class ByteArray
+{
+public:
+    ByteArray();
+    ByteArray(const ByteArray&);
+    ByteArray& operator=(const ByteArray& other);
+    size_t size() const;
+
+private:
+    std::vector<uint8_t> _data;
+};
+
+}
