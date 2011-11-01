@@ -24,13 +24,17 @@
 
 #include "misiarchive.h"
 
+#define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ":" << __func__ << ": " << msg << std::endl;
+
 MisiArchive::MisiArchive()
-    : version(1), reserved_bytes(16)
 {
 
 }
 
 MisiArchive::MisiArchive(const std::istream& stream)
 {
-
+    if (!stream.good())
+    {
+        TRACE("The stream is not readable (stream.good() returned false)");
+    }
 }

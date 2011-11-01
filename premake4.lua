@@ -1,7 +1,7 @@
 -- this is a premake4 script
 -- see http://industriousone.com/premake
 
-solution "nyilas"
+solution "misi"
     language "C++"
     configurations { "debug", "release" }
     includedirs { "./3rdparty/include/", "./src" }
@@ -26,13 +26,15 @@ solution "nyilas"
             defines { "NDEBUG", "RELEASE" }
             flags { "Optimize" }
 
-    project "nyilas"
+    project "misi"
         kind "StaticLib"
         files { "./src/**.h", "./src/**.cc" }
 
         configuration { "debug" }
             flags { "Symbols" }
+            buildoptions { "--std=c++0x", "-pedantic", "-Wall", "-Wextra", "-Werror" }
 
         configuration { "release" }
             defines { "NDEBUG", "RELEASE" }
             flags { "Optimize" }
+            buildoptions { "--std=c++0x", "-pedantic", "-Wall", "-Wextra", "-Werror" }

@@ -25,7 +25,7 @@
 #pragma once
 
 #include <boost/cstdint.hpp>
-#include <boost/unordered_map>
+#include <boost/unordered_map.hpp>
 
 #include <iostream>
 
@@ -40,6 +40,6 @@ public:
     MisiArchive(const std::istream&);
 
 private:
-    const int16 version;
-    const int64 reserved_bytes;
+    static const int16 version = 1;
+    static const int64 reserved_bytes = 16;
 };

@@ -35,12 +35,12 @@ TEST(BasicInterface, Instantiation)
 
 TEST(BasicInterface, Instantiation2)
 {
-    std::ifstream ifs;
+    std::ifstream ifs("asdasd");
     MisiArchive archive2(ifs);
 }
 
 TEST(CowVector, IsVector)
 {
-    std::vector<int>* vec = new CowVector<int>();
-    delete vec;
+    //std::vector<int>* vec = new CowVector<int>();
+    //delete vec;
 }
