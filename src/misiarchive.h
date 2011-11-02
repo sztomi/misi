@@ -29,6 +29,9 @@
 
 #include <iostream>
 
+namespace misi
+{
+
 typedef boost::int16_t int16;
 typedef boost::int32_t int32; 
 typedef boost::int64_t int64;
@@ -43,3 +46,5 @@ private:
     static const int16 version = 1;
     static const int64 reserved_bytes = 16;
 };
+
+}

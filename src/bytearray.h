@@ -35,7 +35,8 @@ class ByteArray
 public:
     ByteArray();
     ByteArray(const ByteArray&);
-    ByteArray& operator=(const ByteArray& other);
+    ByteArray& operator=(const ByteArray&);
+    unsigned char operator[](const int)
     size_t size() const;
 
 private:

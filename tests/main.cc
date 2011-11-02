@@ -30,13 +30,13 @@
 
 TEST(BasicInterface, Instantiation)
 {
-    MisiArchive archive1;
+    misi::MisiArchive archive1;
 }
 
 TEST(BasicInterface, Instantiation2)
 {
     std::ifstream ifs("asdasd");
-    MisiArchive archive2(ifs);
+    misi::MisiArchive archive2(ifs);
 }
 
 TEST(CowVector, IsVector)

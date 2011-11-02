@@ -14,18 +14,6 @@ solution "misi"
     configuration { "release" }
         targetdir "build/release"
 
-    project "test"
-        kind "ConsoleApp"
-        files { "./src/**.h", "./src/**.cc", "./tests/main.cc" }
-        links { "gtest", "gtest_main", "pthread" }
-
-        configuration { "debug" }
-            flags { "Symbols" }
-
-        configuration { "release" }
-            defines { "NDEBUG", "RELEASE" }
-            flags { "Optimize" }
-
     project "misi"
         kind "StaticLib"
         files { "./src/**.h", "./src/**.cc" }
@@ -38,3 +26,15 @@ solution "misi"
             defines { "NDEBUG", "RELEASE" }
             flags { "Optimize" }
             buildoptions { "--std=c++0x", "-pedantic", "-Wall", "-Wextra", "-Werror" }
+
+    project "test"
+        kind "ConsoleApp"
+        files { "./src/**.h", "./src/**.cc", "./tests/main.cc" }
+        links { "gtest", "gtest_main", "pthread" }
+
+        configuration { "debug" }
+            flags { "Symbols" }
+
+        configuration { "release" }
+            defines { "NDEBUG", "RELEASE" }
+            flags { "Optimize" }

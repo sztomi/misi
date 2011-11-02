@@ -24,7 +24,12 @@
 
 #include "misiarchive.h"
 
+// I don't know if this is a good idea in general, but 
+// seems very useful.
 #define TRACE(msg) std::cerr << __FILE__ << ":" << __LINE__ << ":" << __func__ << ": " << msg << std::endl;
+
+namespace misi
+{
 
 MisiArchive::MisiArchive()
 {
@@ -37,4 +42,6 @@ MisiArchive::MisiArchive(const std::istream& stream)
     {
         TRACE("The stream is not readable (stream.good() returned false)");
     }
+}
+
 }
