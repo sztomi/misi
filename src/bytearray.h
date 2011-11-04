@@ -23,24 +23,30 @@
 */
 
 #pragma once
-
-#include <vector>
+#include "global.h"
 
 namespace misi
 {
 
+typedef unsigned char byte;
+    
 // This class is needed to be C++03-compatible
 class ByteArray
 {
+    typedef size_t size_type;
 public:
     ByteArray();
     ByteArray(const ByteArray&);
     ByteArray& operator=(const ByteArray&);
-    unsigned char operator[](const int)
-    size_t size() const;
+    byte& operator[](const int);
+    size_t size();
+    size_t max_size();
+    void resize(size_t sz, byte c = byte());
+    void push_back(const byte&);
+    void pop_back();
 
 private:
-    std::vector<uint8_t> _data;
+    DECLARE_PRIVATE(ByteArray)
 };
 
 }
