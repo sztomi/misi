@@ -22,23 +22,63 @@
 * THE SOFTWARE.
 */
 
-#include "bytearray.h"
-#include "misiarchive.h"
-
 #include "gtest/gtest.h"
 
-#include <fstream>
-
-#include "bytearraytests.h"
-
-TEST(BasicInterface, Instantiation)
+TEST(ByteArray, CanAddItems)
 {
-    misi::MisiArchive archive1;
+    misi::ByteArray ba;
+    ba.push_back('w');
 }
 
-TEST(BasicInterface, Instantiation2)
+TEST(ByteArray, CanRemoveItems)
 {
-    std::ifstream ifs("asdasd");
-    misi::MisiArchive archive2(ifs);
+    misi::ByteArray ba;
+    ba.push_back('w');
+    ba.push_back('w');
+
+    ba.pop_back();
+    EXPECT_EQ(ba.size(), 1);
 }
 
+TEST(ByteArray, CantRemoveZeroItems)
+{
+    misi::ByteArray ba;
+    ba.push_back('w');
+    ba.push_back('w');
+
+    ba.pop_back();
+    ba.pop_back();
+    EXPECT_EQ(ba.size(), 0);
+    ba.pop_back();
+    EXPECT_EQ(ba.size(), 0);
+}
+
+TEST(ByteArray, ReturnsCorrectNumberOfItems)
+{
+    misi::ByteArray ba;
+    ba.push_back('w');
+    ba.push_back('w');
+    ba.push_back('w');
+    EXPECT_EQ(ba.size(), 3);
+}
+
+TEST(ByteArray, ReturnsExpectedItems)
+{
+    misi::ByteArray ba;
+    ba.push_back('a');
+    ba.push_back('b');
+    EXPECT_EQ(ba[0], 'a');
+    EXPECT_EQ(ba[1], 'b');
+}
+
+TEST(ByteArray, CanChangeIndexedItems)
+{
+    misi::ByteArray ba;
+    ba.push_back('a');
+    ba.push_back('b');
+    EXPECT_EQ(ba[0], 'a');
+    EXPECT_EQ(ba[1], 'b');
+
+    ba[0] = 'c';
+    EXPECT_EQ(ba[0], 'c');
+}
