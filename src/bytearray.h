@@ -30,7 +30,6 @@ class ByteArrayPrivate;
 namespace misi
 {
 
-typedef unsigned char byte;
     
 // This class is needed to be C++03-compatible
 class ByteArray

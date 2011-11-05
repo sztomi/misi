@@ -24,23 +24,16 @@
 
 #pragma once
 
-#include <cstdlib>
+#include "global.h"
 
-// kinda copied from qglobal.h of Qt
-#define DECLARE_PRIVATE(Class) \
-    inline Class##Private* d_func() { return reinterpret_cast<Class##Private *>(d_ptr); } \
-    inline const Class##Private* d_func() const { \
-         return reinterpret_cast<const Class##Private *>(d_ptr); } \
-    friend class Class##Private;
+#include <iterator>
 
-#define DECLARE_PUBLIC(Class) \
-    inline Class* q_func() { return static_cast<Class *>(q_ptr); } \
-    inline const Class* q_func() const { return static_cast<const Class *>(q_ptr); } \
-    friend class Class;
 
 namespace misi
 {
 
-typedef unsigned char byte;
+class ByteArrayIterator : public std::iterator<std::random_access_iterator_tag, byte>
+{
+};
 
 }
