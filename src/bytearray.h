@@ -25,6 +25,8 @@
 #pragma once
 #include "global.h"
 
+class ByteArrayPrivate;
+
 namespace misi
 {
 
@@ -38,14 +40,32 @@ public:
     ByteArray();
     ByteArray(const ByteArray&);
     ByteArray& operator=(const ByteArray&);
-    byte& operator[](const int);
-    size_t size();
-    size_t max_size();
+
+    size_type size();
+    size_type max_size();
     void resize(size_t sz, byte c = byte());
+    size_type capacity () const;
+    bool empty() const;
+    void reserve(size_type);
+
+    byte const& operator[](const int) const;
+    byte& operator[](const int);
+    byte const& at(const int) const;
+    byte& at(const int);
+    byte const& front() const;
+    byte& front();
+    byte const& back() const;
+    byte& back();
+    template class<InputIterator> void assign(InputIterator, InputIterator);
+    void assign(size_type, const byte&);
+    void swap(ByteArray&);
+    void clear();
+
     void push_back(const byte&);
     void pop_back();
 
 private:
+    ByteArrayPrivate* d_ptr;
     DECLARE_PRIVATE(ByteArray)
 };
 
