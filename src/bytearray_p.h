@@ -28,11 +28,14 @@
 
 #include <vector>
 
+class ByteArray;
+
 class ByteArrayPrivate
 {
 private: 
     std::vector bytes;
 
 private:
+    ByteArray* q_ptr;
     DECLARE_PUBLIC(ByteArray)
 }
